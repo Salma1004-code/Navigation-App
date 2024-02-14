@@ -1,0 +1,10 @@
+
+This Swift code defines an enum URLResourceIdentifier with two cases: gpx and route. Each case has a raw value of type String, which represents a unique identifier for a specific type of URL resource. Here's a breakdown of the code:
+
+Enum Definition:
+
+URLResourceIdentifier is an enum with two cases: gpx and route.
+Raw Values:
+
+Each case has a raw value of type String, which is used to uniquely identify a type of URL resource.
+The raw values are defined as constants and should match the identifiers provided in the app's Info.plist file under Imported Type Identifiers and Exported Type Identifiers.
