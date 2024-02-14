@@ -1,0 +1,49 @@
+This Swift code defines a class GPXResourceHandler that handles importing GPX (GPS Exchange Format) files. Here's a breakdown of the code:
+
+Extensions:
+
+Notification.Name extension defines a custom notification name for when a GPX resource is imported.
+Class Definition:
+
+GPXResourceHandler is a subclass of URLResourceHandler, which presumably handles various types of URL resources.
+Nested Struct:
+
+Keys defines keys for notification user info dictionary.
+Methods:
+
+handleURLResource(with url: URL): This method attempts to import the GPX resource from the given URL. If successful, it saves the GPX file to the device and posts a notification. If it fails, it logs an error and posts a notification with the error information.
+postNotification(url: URL, error: Error?): This method constructs a dictionary with file name and error information (if available) and posts a notification using NotificationCenter.
+Notification:
+
+The class defines a custom notification name didImportGPXResource for when a GPX resource is imported.
+
+
+
+This Swift code defines a class RouteResourceHandler that handles importing routes from URLs. Here's a breakdown of the code:
+
+Extensions:
+
+Notification.Name extension defines two custom notification names: didImportRoute and didFailToImportRoute.
+Class Definition:
+
+RouteResourceHandler is a subclass of URLResourceHandler, which presumably handles various types of URL resources.
+Nested Struct:
+
+Keys defines a key for route information in the user info dictionary.
+Methods:
+
+handleURLResource(with url: URL): This method attempts to decode RouteParameters from the given URL. If successful, it creates a RouteParametersHandler to process the parameters and then posts a notification with the resulting route. If decoding fails, it posts a failure notification.
+didImportRoute(route: Route): This method constructs a user info dictionary with the route information and posts a didImportRoute notification.
+didFailToImportRoute(): This method posts a didFailToImportRoute notification.
+Notifications:
+
+The class defines two custom notification names didImportRoute and didFailToImportRoute for when a route is successfully imported or import fails, respectively.
+
+This Swift code defines a protocol URLResourceHandler with a single method handleURLResource(with url: URL). This protocol is likely intended to be adopted by classes that need to handle URL resources in some way. Here's a breakdown of the code:
+
+Protocol Definition:
+
+URLResourceHandler is a protocol that defines a method handleURLResource(with url: URL). Classes that conform to this protocol must implement this method.
+Method:
+
+handleURLResource(with url: URL): This method takes a URL as a parameter and is intended to be implemented by conforming classes to handle the URL resource in some way.
