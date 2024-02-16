@@ -1,0 +1,35 @@
+This Swift code defines an enum UserAction representing various user actions. Each case in the enum corresponds to a specific action, such as "myLocation", "aroundMe", "aheadOfMe", etc. Each action has associated properties like identifier, title, suggested invocation phrase, and keywords.
+
+In the C# code:
+
+UserAction enum and extension methods mirror the Swift implementation.
+NSUserActivity class represents the user activity with properties equivalent to those in the Swift code. It has a constructor to initialize it with a UserAction instance and a method to check if it represents a user action.
+
+
+
+This Swift code defines a UserActionManager class responsible for managing user actions within the app. It handles continuing user actions, such as navigating to different sections of the app or performing specific tasks.
+
+Here's a breakdown of the code:
+
+Notification Keys: The Keys struct defines keys used for notifications.
+
+Static Properties:
+
+appUserActions: Returns an array of NSUserActivity instances representing all user actions available in the app.
+appShortcuts: Returns an array of INShortcut instances created from the user activities, which are used for Siri shortcuts.
+Properties:
+
+pendingUserAction: Tracks the user action that is pending to be executed.
+homeViewControllerDidLoad: Tracks whether the home view controller has finished loading.
+Initialization:
+
+Sets up observers for various notifications, including the home view controller load notification, push notification received notification, and app locale change notification.
+Calls the donateSiriShortcuts method if the first use experience for donating Siri shortcuts has not been completed.
+Methods:
+
+donateSiriShortcuts: Donates Siri shortcuts to the system using the user activities.
+continueUserAction: Handles continuing a user action, either immediately if the home view controller has loaded, or by storing it as pending.
+continuePendingUserActionIfNeeded: Continues the pending user action if one exists.
+Various notification handlers for home view controller load, push notification received, and app locale change.
+Action methods for performing specific tasks associated with user actions, such as searching, saving markers, and previewing streets.
+Helper methods for getting the root view controller and checking if the app is in a searching state
