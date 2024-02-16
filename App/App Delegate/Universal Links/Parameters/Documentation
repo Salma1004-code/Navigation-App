@@ -1,8 +1,0 @@
-This Swift code defines a protocol named UniversalLinkParameters, which provides a way to handle query parameters for universal links.
-Explanation:
-
-IUniversalLinkParameters: This interface declares two members:
-A constructor ParseQueryItems to parse query items.
-A property QueryItems to get query items.
-UniversalLinkParametersExtensions: This static class contains an extension method 
-PercentEncodedQueryItems which returns percent-encoded query items, encoding all non-alphanumeric characters in the query item values using HttpUtility.UrlEncode.
