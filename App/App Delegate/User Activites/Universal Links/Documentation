@@ -1,0 +1,14 @@
+This Swift code defines a UniversalLinkManager class responsible for managing universal links within the application.
+
+Explanation:
+
+UniversalLinkManager class: This class manages the handling of universal links within the application.
+pendingLinkComponents: A list to hold pending universal link components until the home view controller has loaded.
+homeViewControllerDidLoad: A flag to track whether the home view controller has loaded or not.
+lockObject: An object used for thread synchronization.
+recreationalActivityLinkHandler and shareMarkerLinkHandler: Instances of classes responsible for handling specific types of universal links.
+OnHomeViewControllerDidLoad(): Method called when the home view controller has loaded. It processes any pending universal links.
+OnLaunchWithUniversalLink(Uri url): Method called when the app is launched with a universal link. It parses the universal link components and decides whether to handle it immediately or store it for later processing.
+LaunchWithUniversalLink(UniversalLinkComponents components): Method to dispatch handling of a universal link based on its type.
+UniversalLinkManagerExtensions class: Extension providing static methods for generating universal links to share markers, entities, and locations.
+This C# code replicates the functionality of the Swift UniversalLinkManager class and its extensions. Please ensure to adapt the RecreationalActivityLinkHandler, ShareMarkerLinkHandler, MarkerParameters, UniversalLinkComponents, UniversalLinkPath, UniversalLinkHandler, POI, LocationDetail, ReferenceEntity, GDATelemetry, and NotificationCenter classes/methods to your C# codebase as per your application's design and requirements.
