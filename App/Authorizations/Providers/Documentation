@@ -1,0 +1,24 @@
+This Swift code defines a protocol AuthorizationProvider and extends it with some default implementations using an extension.
+In the C# equivalent:
+
+We define an enum AuthorizationStatus to represent the different states of authorization.
+We define an interface IAuthorizationProvider which requires implementations to have properties and methods similar to those in the Swift protocol.
+We define a static class AuthorizationProviderExtensions to provide default implementations for IsAuthorized() and DidRequestAuthorization() as extension methods. These methods operate on any object implementing IAuthorizationProvider.
+
+
+
+
+This Swift code defines a protocol named AsyncAuthorizationProviderDelegate with a single method requirement authorizationDidChange(_:).
+In the C# equivalent:
+
+We define an interface IAsyncAuthorizationProviderDelegate with a method AuthorizationDidChange() that takes an AuthorizationStatus parameter.
+Unlike Swift, there's no direct equivalent to AnyObject constraint in C#. However, in C#, interfaces can only be implemented by classes by default, so we don't need to specify any constraint explicitly.
+
+
+This Swift code defines a protocol named AsyncAuthorizationProvider, which inherits from another protocol AuthorizationProvider.
+In the C# equivalent:
+
+We define an interface IAsyncAuthorizationProvider which inherits from IAuthorizationProvider.
+It declares a property AuthorizationDelegate of type IAsyncAuthorizationProviderDelegate, similar to the Swift code.
+
+
