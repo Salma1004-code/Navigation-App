@@ -1,6 +1,10 @@
-public enum AuthorizationStatus
+namespace Soundscape
 {
-    Authorized,
-    Denied,
-    NotDetermined
+    public enum AuthorizationStatus
+    {
+        Authorized,
+        Denied,
+        NotDetermined
+    }
 }
+
