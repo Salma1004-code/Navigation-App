@@ -1,0 +1,58 @@
+The provided Swift code defines a ExperimentConfiguration struct that conforms to the Codable protocol, which means it can be encoded to and decoded from a serialized format (like JSON). Here’s a breakdown of its functionality:
+
+uuid: This is a unique identifier for the experiment configuration.
+experimentIDs: This is a list of unique identifiers for the experiments.
+probability: This is a floating-point number between 0.0 and 1.0 that represents the probability that this list of experiments is enabled for any given user.
+locales: This is a list of locales in which this configuration is available.
+
+
+
+The provided Swift code defines a ExperimentDescription struct that conforms to the Codable protocol, which means it can be encoded to and decoded from a serialized format (like JSON). Here’s a breakdown of its functionality:
+
+uuid: This is a unique identifier for the experiment description.
+name: This is the name of the experiment.
+
+
+This Swift code defines a class ExperimentManager responsible for managing experiments. Here's the breakdown:
+
+Enum KnownExperiment:
+
+Enumerates known experiments.
+Provides a computed property uuid to generate UUIDs for each experiment (though it's commented out with a placeholder).
+Defines a static constant configurationVersion.
+Protocol ExperimentManagerDelegate:
+
+Defines a delegate protocol with a method onExperimentManagerReady() to notify when the experiment manager is ready.
+Class ExperimentManager:
+
+Manages experiments, including downloading, saving, and loading configurations.
+Uses FileManager to handle file I/O operations.
+Utilizes DispatchQueue for asynchronous operations.
+Contains methods to initialize the manager, check if an experiment is enabled, and configure the state of an experiment.
+Implements methods to load and save experiment configurations from/to disk
+
+
+
+This Swift code defines a class ExperimentServiceModel responsible for interacting with experiment services. Here's the breakdown:
+
+Enum ExperimentServiceError:
+
+Enumerates errors that can occur while interacting with the experiment service.
+Class ExperimentServiceModel:
+
+Manages communication with the experiment service.
+Provides methods to download experiment configurations and descriptions.
+Uses URLSession for network requests.
+Defines completion handlers to handle success or failure of network requests.
+
+
+The provided Swift code defines a Flight struct that conforms to the Codable protocol, which means it can be encoded to and decoded from a serialized format (like JSON). Here’s a breakdown of its functionality:
+
+etag: This is the ETag for the control file downloaded from the experiment service that was parsed into this Flight object.
+configurations: This is the set of experiment configurations for this flight.
+configStates: This is a dictionary containing flags for each experiment configuration indicating whether that control is active or not.
+experimentDescriptions: This is the set of experiment descriptions for each experiment.
+init(etag: String, configurations: [ExperimentConfiguration], configStates: [UUID: Bool]): This is an initializer used when decoding a flight object from a json file saved to disk.
+init(etag: String, configurations: [ExperimentConfiguration]): This is an initializer used when setting up a flight for the first time. This will randomly turn experiment configurations on or off according to the probability specified in the configuration objects.
+isActive(_ experimentID: UUID, locale: Locale = LocalizationContext.currentAppLocale) -> Bool: This function checks if an experiment is active.
+setIsActive(configId uuid: UUID, isActive: Bool): This function is used to configure the state of an experiment configuration
