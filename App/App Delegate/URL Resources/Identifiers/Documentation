@@ -3,6 +3,7 @@ This Swift code defines an enum URLResourceIdentifier with two cases: gpx and ro
 
 Enum Definition:
 
+
 URLResourceIdentifier is an enum with two cases: gpx and route.
 Raw Values:
 
