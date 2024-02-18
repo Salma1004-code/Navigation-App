@@ -1,5 +1,8 @@
-public enum AuthorizedService
+namespace Soundscape
 {
-    Location,
-    Motion
+    public enum AuthorizedService
+    {
+        Location,
+        Motion
+    }
 }
