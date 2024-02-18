@@ -2,7 +2,7 @@ This Swift code defines a class GPXResourceHandler that handles importing GPX (G
 
 Extensions:
 
-Notification.Name extension defines a custom notification name for when a GPX resource is imported.
+Notification.Name extension defines a custom notification name for when a  GPX resource is imported.
 Class Definition:
 
 GPXResourceHandler is a subclass of URLResourceHandler, which presumably handles various types of URL resources.
