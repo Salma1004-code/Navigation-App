@@ -43,3 +43,5 @@ Explanation of Swift Code:
 This Swift code defines an enum BeaconOption that conforms to the Identifiable protocol. It represents different types of beacons and includes cases for various beacon styles. Each case is associated with a unique identifier (id), and the enum conforms to the CaseIterable protocol, allowing easy access to all cases.
 
 The id property is derived from the beacon descriptions of different beacon types. The enum also includes an initialization method that allows creating a BeaconOption instance from a given identifier (id).
+
+Note: In C#, we use extension methods and separate classes for beacon descriptions (ClassicBeacon, V2Beacon, etc.). The CreateFromId method is similar to the Swift initializer, allowing the creation of a BeaconOption instance from an identifier. The AllCases property provides all enum cases, and the GetDescription method replaces the id property for describing the enum cases. Ensure that the description classes contain the appropriate descriptions for each beacon option.
