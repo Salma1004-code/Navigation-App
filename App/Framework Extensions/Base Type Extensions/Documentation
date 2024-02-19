@@ -1,0 +1,39 @@
+The Swift code you’ve provided is extending the Array class with additional functionality when the array’s elements are of type CircularQuantity. It adds methods to calculate the mean and standard deviation of the circular quantities in both radians and degrees.
+
+In C#, you can achieve similar functionality by creating extension methods for List<CircularQuantity>. However, please note that the CircularQuantity class and its methods are specific to the original Swift code and may not have direct equivalents in .NET or other C# libraries. You might need to find or create a similar class in C# to fully replicate the functionality.
+
+
+The Swift code you’ve provided is extending the Array class with additional functionality when the array’s elements are of certain types.
+The first extension is for arrays where the elements are Hashable. It provides two methods: toSet() which converts the array to a set, and dropDuplicates() which removes duplicate elements from the array.
+The second extension is for arrays where the elements are of type ReferenceEntity. It provides several methods for sorting and selecting entities based on their distance from a given location and their bearing relative to a given heading.
+The third extension is for arrays where the elements are of type AnyCancellable. It provides a method cancelAndRemoveAll() which cancels all cancellables in the array and then removes them.
+In C#, you can achieve similar functionality by creating extension methods for List<T>.
+
+The Swift code you’ve provided is extending the Array class with additional functionality when the array’s elements are of a type that conforms to the FloatingPoint protocol. It provides three methods: sum(), mean(), and stdev() which calculate the sum, mean, and standard deviation of the elements in the array, respectively.
+In C#, you can achieve similar functionality by creating extension methods for List<T> where T is a floating point type.
+
+
+The Swift code you’ve provided is extending the Array class with additional functionality when the array’s elements are of type LocationDetail or IdentifiableLocationDetail.
+The first extension is for arrays where the elements are LocationDetail. It provides two computed properties: asIdentifiable and asRouteWaypoint. The asIdentifiable property converts each LocationDetail in the array to an IdentifiableLocationDetail. The asRouteWaypoint property converts each LocationDetail in the array to a RouteWaypoint, with the index of the element in the array as the index of the waypoint.
+The second extension is for arrays where the elements are IdentifiableLocationDetail. It provides three computed properties: asLocationDetail, asRouteWaypoint. The asLocationDetail property converts each IdentifiableLocationDetail in the array back to a LocationDetail. The asRouteWaypoint property first converts each IdentifiableLocationDetail in the array to a LocationDetail, and then converts each LocationDetail to a RouteWaypoint.
+
+
+The Swift code you’ve provided is extending the Array class with additional functionality when the array’s elements are of type POI (Point of Interest). It provides several methods for sorting, filtering, and grouping POIs based on various criteria.In C#, you can achieve similar functionality by creating extension methods for List<POI>.
+
+
+The Swift code you’ve provided is extending the Data class with two methods: an initializer and a conversion method.
+The initializer init<T>(from value: T) allows you to create a Data object from a value of any type. It uses the withUnsafeBytes(of:) function to get a byte buffer of the value, and then initializes the Data object with that byte buffer.
+The to<T>(type: T.Type) -> T? method attempts to convert the Data object back into a value of a specified type. It first checks if the size of the Data object is at least as large as the size of the type. If it is, it creates a mutable byte buffer from a value of the type, copies the bytes from the Data object into the byte buffer, and then returns the value. If the size of the Data object is not large enough, it returns nil.
+In C#, you can achieve similar functionality by using the BitConverter class.
+
+
+
+The Swift code you’ve provided is extending the Int type with a method spelledOut(withLocale:). This method transforms an integer into a spelled-out string in a given locale. If no locale is provided, it uses the current locale.In C#, you can achieve similar functionality by creating an extension method for int. However, please note that C# does not have built-in support for spelling out numbers. You would need to use a library or implement your own method to do this.
+
+
+The Swift code you’ve provided is extending the Result type with a computed property success when the Success type is Void. This property returns a Result instance representing a successful operation with no result value.
+In C#, you can achieve similar functionality by creating a static property in a class. However, please note that C# does not have a built-in Result type like Swift. You would need to define your own Result class or use a library that provides a similar type.
+
+
+The Swift code you’ve provided is extending the Thread class with a computed property threadName. This property returns a string that represents the name of the current operation queue, the label of the underlying dispatch queue, or the label of the current dispatch queue, in that order of preference.
+In C#, you can achieve similar functionality by creating an extension method for Thread. However, please note that C# does not have a direct equivalent to Swift’s OperationQueue or DispatchQueue.
