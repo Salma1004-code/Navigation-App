@@ -11,3 +11,35 @@ Certainly! This Swift code defines an extension for the BeaconOption enum, addin
     The code assumes that there is some mechanism for localization, and the exact implementation of the GDLocalizedString function is not provided in this code snippet. It's typically implemented elsewhere in the application, possibly as part of a localization framework or manager.
 
 -----File 2-------
+Explanation:
+
+    Nested Enum Style:
+        The extension introduces a nested enum called Style with two cases: standard and haptic. This enum is used to categorize styles for BeaconOption.
+
+    Computed Property style:
+        The style property is a computed property for the BeaconOption enum. It determines the style of a BeaconOption based on its case.
+        If the case is .wand or .pulse, the style is .haptic; otherwise, it's .standard.
+
+    Method allCases(for style: Style):
+        This method returns an array of all BeaconOption cases that match a specific style.
+
+    Availability Check:
+        The isAvailable(style:) method checks the availability of a given style.
+        For the standard style, it's always available. For the haptic style, it checks the haptic support using HapticEngine.supportsHaptics.
+
+    Properties and Methods for Available Cases:
+        allAvailableCases is a property that returns an array of all available BeaconOption cases based on their styles.
+        allAvailableCases(for style: Style) is a method that returns all available cases for a specific style, considering availability.
+
+    Placeholder HapticEngine:
+        The code assumes the existence of a HapticEngine class or module with a placeholder property supportsHaptics. The actual implementation would depend on your application's handling of haptic feedback.
+
+In summary, this Swift code extends the BeaconOption enum to include styling information, checks for availability, and provides methods to retrieve cases based on styles and availability.
+
+
+-----File 3-------
+Explanation of Swift Code:
+
+This Swift code defines an enum BeaconOption that conforms to the Identifiable protocol. It represents different types of beacons and includes cases for various beacon styles. Each case is associated with a unique identifier (id), and the enum conforms to the CaseIterable protocol, allowing easy access to all cases.
+
+The id property is derived from the beacon descriptions of different beacon types. The enum also includes an initialization method that allows creating a BeaconOption instance from a given identifier (id).
