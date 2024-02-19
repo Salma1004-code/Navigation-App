@@ -1,0 +1,13 @@
+-----File 1-------
+Certainly! This Swift code defines an extension for the BeaconOption enum, adding a computed property called localizedName. This property returns a localized string based on the case of the BeaconOption enum using the function GDLocalizedString.
+    This extension is applied to the BeaconOption enum, which presumably represents different styles or options related to a beacon in some application.
+
+    The localizedName property is a computed property, meaning it doesn't store a value but calculates and returns it based on the current state of the BeaconOption enum.
+
+    The property uses a switch statement to handle each case of the BeaconOption enum and returns a localized string for each case. The localization is done using the GDLocalizedString function, which is assumed to be a function responsible for fetching the localized string based on the provided key.
+
+    The keys passed to GDLocalizedString are constructed based on the enum case, providing a way to look up the localized strings for each option.
+
+    The code assumes that there is some mechanism for localization, and the exact implementation of the GDLocalizedString function is not provided in this code snippet. It's typically implemented elsewhere in the application, possibly as part of a localization framework or manager.
+
+-----File 2-------
