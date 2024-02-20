@@ -1,0 +1,6 @@
+This Swift code is defining a set of color constants within an extension of the Color struct from SwiftUI. The colors are grouped into three categories: Colors, Dark, and Light. Each color is defined by its red, green, and blue (RGB) components, which are values between 0.0 and 1.0.
+
+
+This Swift code is extending the Alert struct from SwiftUI to add a static function deleteMarkerAlert. This function creates an alert for deleting a marker with a given markerId. The alert message changes based on whether the marker is part of any routes. The deleteAction and cancelAction are closures that are executed when the respective buttons are pressed.
+
+This Swift code is extending the Gradient struct from SwiftUI to add three static gradient properties: purple, blue, and darkBlue. Each gradient is defined by an array of Color instances, each created with the sRGB color space and specified red, green, blue, and opacity values.In C#, gradients are typically used in the context of a graphical interface, such as WPF (Windows Presentation Foundation).
