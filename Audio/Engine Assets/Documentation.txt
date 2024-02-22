@@ -1,0 +1,24 @@
+-----File 1-------
+
+This Swift code defines a set of enums conforming to the DynamicAudioEngineAsset protocol, representing different types of beacons and related audio assets. The beacons are categorized into original, exploratory, and distance-based types, each with specific audio assets and configurations.
+
+Explanation of Swift Code:
+
+    Original Beacons:
+        Enums like ClassicBeacon, V2Beacon, etc., represent original beacons.
+        Each case within these enums corresponds to a specific audio asset, and DynamicAudioEngineAsset protocol is used for common functionality.
+
+    Exploratory Beacons:
+        Enums like TactileBeacon, FlareBeacon, etc., represent exploratory beacons.
+        Similar to original beacons, each case corresponds to a specific audio asset.
+
+    Distance-Based Beacon (ProximityBeacon):
+        Represents distance-based beacons with cases for "far" and "near."
+        The selector property calculates the proximity based on the distance between the user and the beacon. It returns a tuple with the selected asset and intensity based on the distance.
+
+    Helper Assets (BeaconAccents, PreviewWandAsset):
+        Enums like BeaconAccents and PreviewWandAsset represent helper assets.
+        These enums have specific audio assets without distance-based selection logic.
+
+
+-----File 2-------
