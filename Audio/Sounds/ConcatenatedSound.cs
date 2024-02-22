@@ -31,4 +31,80 @@ public class ConcatenatedSound : ISound
             switch (channel.Type, type)
             {
                 case (SoundType.Standard, SoundType.Standard):
-                case (SoundType.Localized, SoundType.Localized
+                case (SoundType.Localized, SoundType.Localized):
+                case (SoundType.Relative, SoundType.Relative):
+                case (SoundType.Compass, SoundType.Compass):
+                    return true;
+                default:
+                    return false;
+            }
+        });
+
+        if (!typesMatch)
+            return;
+
+        Type = type;
+
+        if (ConcatenatedSounds.First() is ISound first)
+        {
+            Description = "[" + ConcatenatedSounds.Skip(1).Aggregate(first.Description, (current, sound) => current + ", " + sound.Description) + "]";
+        }
+        else
+        {
+            Description = "[]";
+        }
+    }
+
+    public Promise<AVAudioPCMBuffer?> NextBuffer(int layerIndex)
+    {
+        if (layerIndex != 0)
+        {
+            return new Promise<AVAudioPCMBuffer?>(resolver => resolver(null));
+        }
+
+        return new Promise<AVAudioPCMBuffer?>(resolver =>
+        {
+            if (this == null)
+            {
+                resolver(null);
+                return;
+            }
+
+            NextBufferForCurrentIndex(resolver);
+        });
+    }
+
+    private void NextBufferForCurrentIndex(Promise<AVAudioPCMBuffer?>.Resolver resolver)
+    {
+        currentBufferPromise = ConcatenatedSounds[currentSoundIndex].NextBuffer(0) as Promise<AVAudioPCMBuffer?>;
+        currentBufferPromise?.Then(buffer =>
+        {
+            if (buffer != null)
+            {
+                resolver(buffer);
+                return;
+            }
+
+            if (this != null && currentSoundIndex < ConcatenatedSounds.Count - 1)
+            {
+                currentSoundIndex += 1;
+                currentBufferPromise = (ConcatenatedSounds[currentSoundIndex].NextBuffer(0) as Promise<AVAudioPCMBuffer?>);
+                currentBufferPromise?.Then(nextBuffer => resolver(nextBuffer));
+            }
+            else
+            {
+                resolver(null);
+            }
+        });
+    }
+
+    public EQParameters EqualizerParams(int layerIndex)
+    {
+        if (layerIndex != 0)
+        {
+            return null;
+        }
+
+        return ConcatenatedSounds.Select(channel => channel.EqualizerParams(0)).FirstOrDefault(params => params != null);
+    }
+}
