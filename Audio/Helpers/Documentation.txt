@@ -1,0 +1,30 @@
+-------File1-----------
+
+The Swift code defines a struct named EQParameters that conforms to the Decodable protocol. This struct represents equalizer parameters for audio processing. Here are the key components:
+
+    Properties:
+        bandParameters: An array of FilterBandParameters, representing filter parameters for each band in the equalizer.
+        globalGain: A floating-point value representing the overall gain adjustment applied to the signal in decibels. The default value is 0 dB, and the valid range is -96 dB to 24 dB.
+
+    Initializer:
+        The init method initializes an instance of EQParameters with optional parameters for globalGain and parameters. The globalGain is clamped to the valid range of -96 dB to 24 dB.
+
+In the C# code, I've translated the Swift struct into a C# class (EQParameters) and left the FilterBandParameters class as a placeholder. You'll need to define the properties for FilterBandParameters based on your specific requirements for representing filter parameters for each band.
+
+
+-------------File 2--------------
+The Swift code defines a class named WaveAudioParser that conforms to the AudioParser protocol. This class is responsible for parsing wave audio data. Here are the key components:
+
+    Properties:
+        riffMarker, fmtMarker, dataMarker: Constants representing the markers for RIFF, fmt, and data chunks.
+        fmtSampleRateByteRange, chunkMarkerByteRange, subchunkSizeByteRange: Ranges of bytes for sample rate, chunk marker, and subchunk size, respectively.
+        chunkHeaderSize, subchunkHeaderSize: Sizes (in bytes) of chunk and subchunk headers, respectively.
+
+    Methods:
+        getAudioData(data: Data) -> Data?: Extracts audio data from the wave file by finding the "data" chunk and removing its header.
+        getSampleRate(data: Data) -> UInt32?: Retrieves the sample rate from the wave file by finding the "fmt" chunk and reading the sample rate field.
+
+    Parse Wave Data:
+        getChunkWithMarker(data: Data, marker: String) -> Data?: Recursively finds and returns the data associated with a specified marker (e.g., "data" or "fmt").
+        parseChunk(data: Data) -> (marker: String?, size: Int)?: Parses a chunk header in the wave file, extracting the marker and size information.
+In the C# code, I've translated the Swift class into a C# class. Note that C# doesn't have built-in ranges like Swift, so I used Range class to represent ranges. Also, I've used Encoding.UTF8.GetString to convert bytes to a string for marker comparison.
