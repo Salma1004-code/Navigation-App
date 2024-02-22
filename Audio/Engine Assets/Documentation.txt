@@ -19,6 +19,25 @@ Explanation of Swift Code:
     Helper Assets (BeaconAccents, PreviewWandAsset):
         Enums like BeaconAccents and PreviewWandAsset represent helper assets.
         These enums have specific audio assets without distance-based selection logic.
+In the C# code, I've created separate enums for each beacon type and implemented the IDynamicAudioEngineAsset interface. The GetDescription method returns the string representation of the enum, the GetSelector method contains the logic for selecting the asset based on the input, and the BeatsInPhrase method returns the beats in phrase for each specific enum. The AssetInput class represents the input parameters for the
+
 
 
 -----File 2-------
+
+The Swift code defines an enumeration named StaticAudioEngineAsset that conforms to the AudioEngineAsset protocol. It represents various static audio assets, including earcons, glyphs, continuous audio, and location preview sounds. Each case in the enum corresponds to a specific audio file with a descriptive raw value (filename).
+
+    Earcons/Glyphs:
+        The cases represent earcons and glyphs used in the application.
+        Examples include enterMode, exitMode, hush, infoAlert, etc.
+
+    Constants:
+        Constants like startListening, stopListening, and tellMeMore are declared, each associated with a specific audio asset. These constants provide a convenient way to reference frequently used audio assets.
+
+    Continuous Audio:
+        The case calibrationInProgress represents an audio asset for calibration in progress.
+
+    Location Preview:
+        Cases like previewStart, previewEnd, streetFound, travelStart, etc., represent audio assets used in location preview scenarios.
+
+In the C# code, I've translated the Swift enum and constants directly. The StaticAudioEngineAssetExtensions class contains the GetDescription method, which returns the string representation of the enum. This C# code represents a similar structure and functionality as the original Swift code.
