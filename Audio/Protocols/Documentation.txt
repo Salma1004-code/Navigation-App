@@ -171,3 +171,70 @@ Explanation:cs
 
 
 -------------------File7-------------------
+Explanation:swift
+
+    Sound Protocol:
+        This protocol extends SoundBase and defines the behavior for sound objects in the application.
+
+    Properties:
+        Inherits properties from SoundBase, suggesting that Sound is a refinement or extension of a more basic sound representation.
+
+    Methods:
+        nextBuffer(forLayer: Int) -> Promise<AVAudioPCMBuffer?>:
+            A method that generates the next PCM audio buffer for the sound. The method takes a layer parameter, indicating which layer of the sound is being requested.
+            It returns a Promise (asynchronous computation) of AVAudioPCMBuffer?, representing the next audio buffer for the sound.
+
+Explanation:cs
+
+    ISound Interface:
+        This interface extends ISoundBase and defines the behavior for sound objects in the C# application.
+
+    Methods:
+        NextBuffer(int layer) -> Task<AVAudioPCMBuffer?>:
+            A method that generates the next PCM audio buffer for the sound. The method takes a layer parameter, indicating which layer of the sound is being requested.
+            It returns a Task<AVAudioPCMBuffer?>, representing the asynchronous operation of getting the next audio buffer for the sound.
+
+Please note that the actual implementation of the NextBuffer method would depend on the specific requirements and logic of your C# application. Additionally, you may need to adapt other properties and methods inherited from ISoundBase in the C# implementation.
+
+------------------File8-----------------------
+
+Explanation:swift
+
+    SoundBase Protocol:
+        This protocol defines the basic properties and behavior for sound objects in the application.
+
+    Properties:
+        type: SoundType: Gets the type of the sound, determining its rendering style.
+        layerCount: Int: Gets the number of layers in the sound.
+
+    Method:
+        equalizerParams(for layerIndex: Int) -> EQParameters?: Looks up the optional equalizer parameters for a given layer. It takes a layer index and returns EQParameters if available.
+
+    Extension:
+        Provides a default implementation for the formattedLog property.
+        formattedLog: Generates a formatted log string based on the type of the sound.
+            For standard type, it appends "(Standard 2D)" to the description.
+            For localized type, it includes the style information and the location's coordinates.
+            For compass type, it includes the style information and the compass direction.
+            For relative type, it includes the style information and the relative direction.
+
+Explanation: cs
+
+    ISoundBase Interface:
+        This interface defines the properties and methods for sound objects in the C# application.
+
+    Properties:
+        Type: Gets the type of the sound, determining its rendering style.
+        LayerCount: Gets the number of layers in the sound.
+
+    Method:
+        EqualizerParams(int layerIndex): Looks up the optional equalizer parameters for a given layer. It takes a layer index and returns EQParameters if available.
+
+    Extension:
+        Provides an extension method for generating a formatted log string (FormattedLog) based on the type of the sound.
+            For standard type, it appends "(Standard 2D)" to the description.
+            For localized type, it includes the style information and the location's coordinates.
+            For compass type, it includes the style information and the compass direction.
+            For relative type, it includes the style information and the relative direction.
+
+Note: In C#, we've used additional interfaces (ILocalizedSound, ICompassSound, IRelativeSound) to represent sound types with specific properties (e.g., Style, Location, Direction). This assumes that your SoundType enum has associated data. You might need to adjust the interfaces based on your actual requirements.
